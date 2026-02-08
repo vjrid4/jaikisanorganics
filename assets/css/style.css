@@ -11,6 +11,7 @@
     --primary-green-dark: #1B5E20;
     --accent-brown: #5D4037;
     --accent-brown-light: #795548;
+    --saffron: #FF9933;
     --text-dark: #212121;
     --text-medium: #424242;
     --text-light: #757575;
@@ -132,8 +133,8 @@ p {
 }
 
 .logo-text span {
-    color: var(--accent-brown);
-    font-weight: 400;
+    color: var(--saffron);
+    font-weight: 600;
 }
 
 /* Navigation */
