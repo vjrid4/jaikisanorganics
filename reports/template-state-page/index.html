@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+
+    <!--
+    ============================================
+    STATE REPORT TEMPLATE
+    ============================================
+    Instructions for adding new state reports:
+
+    1. Duplicate this folder with the state name (lowercase, hyphenated)
+       Example: /reports/karnataka/ or /reports/tamil-nadu/
+
+    2. Update all placeholder content marked with [PLACEHOLDER]
+
+    3. Update meta tags:
+       - title
+       - description
+       - canonical URL
+       - Open Graph tags
+
+    4. Update schema markup with state-specific information
+
+    5. Add state to navigation dropdown in all pages
+
+    6. Add state to sitemap.xml
+
+    7. Remove the noindex,nofollow robots meta tag
+    ============================================
+    -->
+
+    <title>[STATE_NAME] Agriculture Report 2024 | Jaikisan Organics</title>
+    <meta name="description" content="Comprehensive [STATE_NAME] agriculture report covering major crops, market trends, irrigation, and digital farming adoption. Expert analysis for farmers and stakeholders.">
+    <link rel="canonical" href="https://jaikisanorganics.com/reports/[state-slug]/">
+
+    <link rel="icon" type="image/png" href="/assets/images/favicon.png">
+    <link rel="stylesheet" href="/assets/css/style.css">
+
+    <!-- Schema Markup - Update for each state -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "[STATE_NAME] Agriculture Report 2024",
+        "description": "Comprehensive analysis of [STATE_NAME]'s agricultural sector.",
+        "author": {
+            "@type": "Organization",
+            "name": "Jaikisan Organics Agro Services"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "Jaikisan Organics Agro Services"
+        },
+        "datePublished": "2024-XX-XX",
+        "dateModified": "2024-XX-XX"
+    }
+    </script>
+</head>
+<body>
+    <!-- Header - Copy from other state pages -->
+    <header class="header">
+        <div class="container">
+            <div class="header-inner">
+                <a href="/" class="logo">
+                    <div class="logo-icon">JO</div>
+                    <div class="logo-text">Jaikisan <span>Organics</span></div>
+                </a>
+                <button class="menu-toggle" aria-label="Toggle navigation"><span></span><span></span><span></span></button>
+                <nav class="nav">
+                    <ul class="nav-list">
+                        <li class="nav-item"><a href="/" class="nav-link">Home</a></li>
+                        <li class="nav-item"><a href="/about/" class="nav-link">About</a></li>
+                        <li class="nav-item">
+                            <a href="/reports/" class="nav-link active">Reports ▾</a>
+                            <div class="dropdown-menu">
+                                <a href="/reports/">All Reports</a>
+                                <a href="/reports/andhra-pradesh/">Andhra Pradesh</a>
+                                <a href="/reports/telangana/">Telangana</a>
+                                <!-- Add new state here -->
+                            </div>
+                        </li>
+                        <li class="nav-item"><a href="/insights/" class="nav-link">Insights ▾</a>
+                            <div class="dropdown-menu">
+                                <a href="/insights/">All Insights</a>
+                                <a href="/insights/crops/">Crop Analysis</a>
+                                <a href="/insights/policy/">Policy Updates</a>
+                            </div>
+                        </li>
+                        <li class="nav-item"><a href="/success-stories/" class="nav-link">Stories</a></li>
+                        <li class="nav-item"><a href="/blog/" class="nav-link">Blog</a></li>
+                        <li class="nav-item"><a href="/contact/" class="nav-link">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero - Update color and state name -->
+    <section class="hero hero-small" style="background: linear-gradient(135deg, #[COLOR1] 0%, #[COLOR2] 100%);">
+        <div class="container">
+            <h1>[STATE_NAME] Agriculture Report</h1>
+            <p>Comprehensive analysis of [STATE_NAME]'s farming landscape and agricultural economy</p>
+        </div>
+    </section>
+
+    <!-- Breadcrumbs -->
+    <nav class="breadcrumbs">
+        <div class="container">
+            <ol class="breadcrumbs-list">
+                <li><a href="/">Home</a></li>
+                <li><a href="/reports/">Reports</a></li>
+                <li><span class="current">[STATE_NAME]</span></li>
+            </ol>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <section class="section">
+        <div class="container">
+            <div class="content-wrapper">
+                <main class="main-content">
+                    <article class="article-content">
+                        <!-- Key Statistics - Update with state data -->
+                        <div class="stats-grid">
+                            <div class="stat-item">
+                                <span class="stat-number">[XX]%</span>
+                                <div class="stat-label">Agricultural Workforce</div>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number">[X.X]M</span>
+                                <div class="stat-label">Hectares Cultivated</div>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number">[XX]%</span>
+                                <div class="stat-label">GDP from Agriculture</div>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number">[XX]</span>
+                                <div class="stat-label">[Key Metric]</div>
+                            </div>
+                        </div>
+
+                        <h2>Agricultural Overview</h2>
+                        <p>[Write 2-3 paragraphs introducing the state's agricultural profile, geography, climate, and overall significance in Indian agriculture.]</p>
+
+                        <h2>Major Crops</h2>
+                        <h3>[Crop 1 - Most Important]</h3>
+                        <p>[Detailed analysis of the crop, production zones, trends, challenges]</p>
+
+                        <h3>[Crop 2]</h3>
+                        <p>[Analysis]</p>
+
+                        <h3>[Crop 3]</h3>
+                        <p>[Analysis]</p>
+
+                        <h2>Irrigation and Water Resources</h2>
+                        <p>[Discuss major irrigation projects, groundwater status, micro-irrigation adoption]</p>
+
+                        <h2>Market Access and Infrastructure</h2>
+                        <p>[Discuss mandis, market connectivity, digital platform adoption]</p>
+
+                        <!-- Natural link to marketplace - use contextually -->
+                        <div class="marketplace-box">
+                            <h4>Connect with [STATE_NAME] Markets</h4>
+                            <p>Farmers in [STATE_NAME] can list their produce on <a href="https://jaikisan.co.in" rel="noopener" target="_blank">Jaikisan Marketplace</a> to reach buyers directly.</p>
+                        </div>
+
+                        <h2>Policy Framework</h2>
+                        <p>[Discuss state-specific agricultural policies and schemes]</p>
+
+                        <h2>Challenges and Opportunities</h2>
+                        <h3>Current Challenges</h3>
+                        <ul>
+                            <li>[Challenge 1]</li>
+                            <li>[Challenge 2]</li>
+                            <li>[Challenge 3]</li>
+                        </ul>
+
+                        <h3>Emerging Opportunities</h3>
+                        <ul>
+                            <li>[Opportunity 1]</li>
+                            <li>[Opportunity 2]</li>
+                            <li>[Opportunity 3]</li>
+                        </ul>
+
+                        <h2>Conclusion</h2>
+                        <p>[Summary and outlook]</p>
+
+                        <div style="margin-top: 2rem; padding-top: 2rem; border-top: 1px solid #E0E0E0;">
+                            <p><strong>Related Reading:</strong></p>
+                            <ul>
+                                <li><a href="/reports/andhra-pradesh/">Andhra Pradesh Report</a></li>
+                                <li><a href="/reports/telangana/">Telangana Report</a></li>
+                                <li><a href="/insights/crops/">Crop Insights</a></li>
+                            </ul>
+                        </div>
+                    </article>
+                </main>
+
+                <aside class="sidebar">
+                    <div class="sidebar-widget">
+                        <h4>In This Report</h4>
+                        <ul class="sidebar-list">
+                            <li><a href="#">Agricultural Overview</a></li>
+                            <li><a href="#">Major Crops</a></li>
+                            <li><a href="#">Irrigation</a></li>
+                            <li><a href="#">Markets</a></li>
+                            <li><a href="#">Policy</a></li>
+                            <li><a href="#">Challenges</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="sidebar-widget">
+                        <h4>Other Reports</h4>
+                        <ul class="sidebar-list">
+                            <li><a href="/reports/andhra-pradesh/">Andhra Pradesh</a></li>
+                            <li><a href="/reports/telangana/">Telangana</a></li>
+                        </ul>
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer - Copy from other pages -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <div class="logo-icon">JO</div>
+                        <div class="logo-text">Jaikisan <span>Organics</span></div>
+                    </div>
+                    <p>Building agricultural knowledge infrastructure for a sustainable farming future in India.</p>
+                </div>
+                <div>
+                    <h5>Quick Links</h5>
+                    <ul class="footer-links">
+                        <li><a href="/about/">About Us</a></li>
+                        <li><a href="/contact/">Contact</a></li>
+                        <li><a href="/blog/">Blog</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h5>State Reports</h5>
+                    <ul class="footer-links">
+                        <li><a href="/reports/andhra-pradesh/">Andhra Pradesh</a></li>
+                        <li><a href="/reports/telangana/">Telangana</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h5>Resources</h5>
+                    <ul class="footer-links">
+                        <li><a href="/case-studies/">Case Studies</a></li>
+                        <li><a href="/success-stories/">Success Stories</a></li>
+                        <li><a href="https://jaikisan.co.in" rel="noopener" target="_blank">Jaikisan Marketplace</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Jaikisan Organics Agro Services. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    <script src="/assets/js/main.js"></script>
+</body>
+</html>
