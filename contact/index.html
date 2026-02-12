@@ -70,7 +70,16 @@
                         <h2>Get In Touch</h2>
                         <p>Whether you're a farmer seeking information, a researcher interested in collaboration, or a media professional looking for agricultural expertise, we're here to help.</p>
 
-                        <form action="#" method="POST" style="margin-top: 2rem;">
+                        <div id="success-message" style="display: none; background: #4CAF50; color: white; padding: 1rem 1.5rem; border-radius: 8px; margin-bottom: 1.5rem;">
+                            <strong>Thank you!</strong> Your message has been sent successfully. We'll get back to you soon.
+                        </div>
+
+                        <form action="https://api.web3forms.com/submit" method="POST" style="margin-top: 2rem;">
+                            <!-- Get your access key from https://web3forms.com -->
+                            <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE">
+                            <input type="hidden" name="subject" value="New Contact Form Submission - Jaikisan Organics">
+                            <input type="hidden" name="redirect" value="https://jaikisanorganics.com/contact/?success=true">
+                            <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
                             <div class="form-group">
                                 <label for="name">Your Name *</label>
                                 <input type="text" id="name" name="name" class="form-control" required>
@@ -169,5 +178,12 @@
         </div>
     </footer>
     <script src="../assets/js/main.js"></script>
+    <script>
+        // Show success message if form was submitted
+        if (window.location.search.includes('success=true')) {
+            document.getElementById('success-message').style.display = 'block';
+            window.scrollTo(0, 0);
+        }
+    </script>
 </body>
 </html>
