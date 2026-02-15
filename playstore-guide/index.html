@@ -1,0 +1,928 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jaikisan App - Google Play Store Publishing Guide</title>
+    <meta name="robots" content="noindex, nofollow">
+
+    <!-- Google Fonts - Indian Languages -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+Telugu:wght@400;500;600;700&family=Noto+Sans+Devanagari:wght@400;500;600;700&family=Noto+Sans+Kannada:wght@400;500;600;700&family=Noto+Sans+Tamil:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary: #2E7D32;
+            --primary-dark: #1B5E20;
+            --accent: #FF9800;
+            --bg: #FAFAFA;
+            --card-bg: #FFFFFF;
+            --text: #212121;
+            --text-secondary: #666666;
+            --border: #E0E0E0;
+            --code-bg: #F5F5F5;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', 'Noto Sans Telugu', 'Noto Sans Devanagari', 'Noto Sans Kannada', 'Noto Sans Tamil', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            font-size: 16px;
+        }
+
+        /* Telugu Text */
+        .te, .telugu {
+            font-family: 'Noto Sans Telugu', sans-serif;
+        }
+
+        /* Hindi Text */
+        .hi, .hindi {
+            font-family: 'Noto Sans Devanagari', sans-serif;
+        }
+
+        /* Kannada Text */
+        .kn, .kannada {
+            font-family: 'Noto Sans Kannada', sans-serif;
+        }
+
+        /* Tamil Text */
+        .ta, .tamil {
+            font-family: 'Noto Sans Tamil', sans-serif;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        header h1 {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+        }
+
+        header p {
+            opacity: 0.9;
+            font-size: 1rem;
+        }
+
+        .toc {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 25px;
+            margin: 30px 0;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+
+        .toc h2 {
+            color: var(--primary);
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+        }
+
+        .toc ol {
+            padding-left: 20px;
+        }
+
+        .toc li {
+            margin: 8px 0;
+        }
+
+        .toc a {
+            color: var(--text);
+            text-decoration: none;
+        }
+
+        .toc a:hover {
+            color: var(--primary);
+            text-decoration: underline;
+        }
+
+        section {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 30px;
+            margin: 25px 0;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+
+        h2 {
+            color: var(--primary);
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--primary);
+        }
+
+        h3 {
+            color: var(--primary-dark);
+            font-size: 1.2rem;
+            margin: 25px 0 15px;
+        }
+
+        h4 {
+            color: var(--text);
+            font-size: 1.05rem;
+            margin: 20px 0 10px;
+        }
+
+        p {
+            margin: 12px 0;
+            color: var(--text-secondary);
+        }
+
+        ul, ol {
+            margin: 15px 0;
+            padding-left: 25px;
+        }
+
+        li {
+            margin: 8px 0;
+            color: var(--text-secondary);
+        }
+
+        code {
+            font-family: 'JetBrains Mono', monospace;
+            background: var(--code-bg);
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.9em;
+        }
+
+        pre {
+            background: #1E1E1E;
+            color: #D4D4D4;
+            padding: 20px;
+            border-radius: 8px;
+            overflow-x: auto;
+            margin: 15px 0;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
+        pre code {
+            background: none;
+            padding: 0;
+            color: inherit;
+        }
+
+        .copy-box {
+            background: linear-gradient(135deg, #E8F5E9 0%, #C8E6C9 100%);
+            border: 2px solid var(--primary);
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+            position: relative;
+        }
+
+        .copy-box h4 {
+            color: var(--primary-dark);
+            margin-top: 0;
+            margin-bottom: 10px;
+        }
+
+        .copy-box .content {
+            font-family: 'JetBrains Mono', 'Noto Sans Telugu', 'Noto Sans Devanagari', 'Noto Sans Kannada', 'Noto Sans Tamil', monospace;
+            background: white;
+            padding: 15px;
+            border-radius: 6px;
+            font-size: 1rem;
+            line-height: 1.6;
+            white-space: pre-wrap;
+            word-break: break-word;
+        }
+
+        .copy-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        .copy-btn:hover {
+            background: var(--primary-dark);
+        }
+
+        .copy-btn.copied {
+            background: #43A047;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-size: 0.95rem;
+        }
+
+        th, td {
+            padding: 12px 15px;
+            text-align: left;
+            border: 1px solid var(--border);
+        }
+
+        th {
+            background: var(--primary);
+            color: white;
+            font-weight: 600;
+        }
+
+        tr:nth-child(even) {
+            background: #F9F9F9;
+        }
+
+        .warning {
+            background: #FFF3E0;
+            border-left: 4px solid var(--accent);
+            padding: 15px 20px;
+            margin: 20px 0;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .warning strong {
+            color: #E65100;
+        }
+
+        .info {
+            background: #E3F2FD;
+            border-left: 4px solid #2196F3;
+            padding: 15px 20px;
+            margin: 20px 0;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .success {
+            background: #E8F5E9;
+            border-left: 4px solid var(--primary);
+            padding: 15px 20px;
+            margin: 20px 0;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .lang-section {
+            background: #FFFDE7;
+            border: 1px solid #FFF59D;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 15px 0;
+        }
+
+        .lang-section h4 {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 0;
+        }
+
+        .lang-flag {
+            font-size: 1.3rem;
+        }
+
+        .checklist {
+            list-style: none;
+            padding: 0;
+        }
+
+        .checklist li {
+            padding: 8px 0;
+            padding-left: 30px;
+            position: relative;
+        }
+
+        .checklist li::before {
+            content: "☐";
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+            font-size: 1.2rem;
+        }
+
+        a {
+            color: var(--primary);
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                padding: 15px;
+            }
+
+            section {
+                padding: 20px;
+            }
+
+            header h1 {
+                font-size: 1.4rem;
+            }
+
+            pre {
+                font-size: 0.8rem;
+                padding: 15px;
+            }
+
+            table {
+                font-size: 0.85rem;
+            }
+
+            th, td {
+                padding: 8px 10px;
+            }
+        }
+
+        /* Print styles */
+        @media print {
+            header {
+                position: static;
+            }
+
+            section {
+                break-inside: avoid;
+                box-shadow: none;
+                border: 1px solid #ddd;
+            }
+
+            .copy-btn {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>🌾 Jaikisan App - Play Store Publishing Guide</h1>
+        <p>Complete Step-by-Step Guide with ASO Optimization</p>
+    </header>
+
+    <div class="container">
+        <nav class="toc">
+            <h2>📋 Table of Contents</h2>
+            <ol>
+                <li><a href="#prerequisites">Pre-requisites</a></li>
+                <li><a href="#developer-account">Creating Developer Account</a></li>
+                <li><a href="#app-listing">Creating the App Listing</a></li>
+                <li><a href="#aso">App Details & ASO Optimization</a></li>
+                <li><a href="#upload">Uploading the AAB File</a></li>
+                <li><a href="#content-rating">Content Rating</a></li>
+                <li><a href="#graphics">Store Listing Graphics</a></li>
+                <li><a href="#declarations">App Content Declaration</a></li>
+                <li><a href="#pricing">Pricing & Distribution</a></li>
+                <li><a href="#submit">Review & Submit</a></li>
+                <li><a href="#post-launch">Post-Launch Optimization</a></li>
+                <li><a href="#keywords">Keywords & Search Terms</a></li>
+            </ol>
+        </nav>
+
+        <section id="prerequisites">
+            <h2>Step 0: Pre-requisites</h2>
+            <p>Before starting, ensure you have:</p>
+            <ul class="checklist">
+                <li>Google Play Developer Account ($25 one-time fee)</li>
+                <li>Jaikisan.aab file (Android App Bundle)</li>
+                <li>signing.keystore file (keep safe!)</li>
+                <li>App icon (512x512 PNG)</li>
+                <li>Feature graphic (1024x500 PNG)</li>
+                <li>Screenshots (minimum 2, recommended 8)</li>
+                <li>Privacy Policy URL</li>
+            </ul>
+
+            <div class="warning">
+                <strong>⚠️ Important:</strong> Keep your <code>signing.keystore</code> file safe! You'll need it for all future app updates. If lost, you cannot update your app.
+            </div>
+        </section>
+
+        <section id="developer-account">
+            <h2>Step 1: Creating Developer Account</h2>
+            <p>If you don't have a Google Play Developer account:</p>
+            <ol>
+                <li>Go to: <a href="https://play.google.com/console/signup" target="_blank">play.google.com/console/signup</a></li>
+                <li>Sign in with Google Account</li>
+                <li>Accept Developer Agreement</li>
+                <li>Pay $25 registration fee</li>
+                <li>Complete account details:
+                    <ul>
+                        <li><strong>Developer Name:</strong> Jaikisan Organics Agro Services</li>
+                        <li><strong>Email:</strong> contact@jaikisanorganics.com</li>
+                        <li><strong>Phone:</strong> Your business phone</li>
+                        <li><strong>Website:</strong> https://jaikisan.co.in</li>
+                    </ul>
+                </li>
+            </ol>
+        </section>
+
+        <section id="app-listing">
+            <h2>Step 2: Creating the App Listing</h2>
+            <ol>
+                <li>Go to: <a href="https://play.google.com/console" target="_blank">play.google.com/console</a></li>
+                <li>Click <strong>"Create app"</strong></li>
+                <li>Fill in:
+                    <ul>
+                        <li><strong>App name:</strong> Jaikisan - Farm Fresh Marketplace</li>
+                        <li><strong>Default language:</strong> English (India) - en-IN</li>
+                        <li><strong>App or game:</strong> App</li>
+                        <li><strong>Free or paid:</strong> Free</li>
+                    </ul>
+                </li>
+                <li>Accept declarations and click <strong>"Create app"</strong></li>
+            </ol>
+        </section>
+
+        <section id="aso">
+            <h2>Step 3: App Details & ASO Optimization</h2>
+            <p>Navigate to: <strong>Grow > Store presence > Main store listing</strong></p>
+
+            <h3>App Name (30 characters max)</h3>
+            <div class="copy-box">
+                <button class="copy-btn" onclick="copyText(this)">Copy</button>
+                <h4>English</h4>
+                <div class="content">Jaikisan - Raithu Mitra 🌾</div>
+            </div>
+
+            <h3>Short Description (80 characters max)</h3>
+            <div class="copy-box">
+                <button class="copy-btn" onclick="copyText(this)">Copy</button>
+                <h4>English</h4>
+                <div class="content">Buy fresh vegetables, fruits, grains & oils directly from farmers near you 🌾</div>
+            </div>
+
+            <h3>Full Description (4000 characters max)</h3>
+            <div class="copy-box">
+                <button class="copy-btn" onclick="copyText(this)">Copy</button>
+                <h4>English - Full Description</h4>
+                <div class="content">🌾 JAIKISAN - India's Trusted Farm Fresh Marketplace 🌾
+
+Jaikisan (జైకిసాన్) connects you directly with local farmers to buy fresh vegetables, fruits, pulses, grains, oils, dairy, and organic produce at the best prices.
+
+═══════════════════════════════════
+WHY CHOOSE JAIKISAN?
+═══════════════════════════════════
+
+✅ FARM FRESH PRODUCE
+Buy vegetables, fruits, rice, dal, oils, ghee, milk, and organic products directly from farmers - no middlemen!
+
+✅ BEST PRICES GUARANTEED
+Save 20-40% compared to local markets. Direct farmer pricing means fresher produce at lower costs.
+
+✅ SUPPORT LOCAL FARMERS
+Every purchase supports rural families and promotes sustainable agriculture.
+
+✅ VERIFIED FARMERS
+All farmers are verified with real profiles, ratings, and reviews.
+
+✅ CONVENIENT DELIVERY
+Home delivery or pickup options available in your area.
+
+═══════════════════════════════════
+WHAT YOU CAN BUY
+═══════════════════════════════════
+
+🥬 VEGETABLES (కూరగాయలు)
+Tomatoes, Onions, Potatoes, Leafy Greens, Brinjal, Beans, Gourds, Drumstick, Ladies Finger, and more!
+
+🍎 FRUITS (పండ్లు)
+Mangoes, Bananas, Papaya, Guava, Pomegranate, Grapes, Oranges, Watermelon, and seasonal fruits
+
+🌾 GRAINS & PULSES (ధాన్యాలు)
+Rice (Sona Masoori, Basmati), Dal (Toor, Moong, Urad, Chana), Wheat, Millets, Jowar, Bajra
+
+🫒 OILS (నూనెలు)
+Groundnut Oil, Coconut Oil, Sunflower Oil, Sesame Oil, Mustard Oil - Cold pressed & pure
+
+🥛 DAIRY (పాల ఉత్పత్తులు)
+Fresh Milk, Curd, Ghee, Paneer, Butter - Farm fresh quality
+
+🌿 ORGANIC PRODUCE
+Chemical-free, naturally grown vegetables and fruits from certified organic farms
+
+═══════════════════════════════════
+FOR FARMERS (రైతులకు)
+═══════════════════════════════════
+
+👨‍🌾 SELL YOUR PRODUCE
+List your harvest and connect with buyers directly. Get better prices than mandis!
+
+📱 EASY LISTING
+Upload photos, set prices, manage inventory - all from your phone
+
+💰 DIRECT PAYMENTS
+Receive payments directly to your bank account
+
+📊 TRACK SALES
+View orders, messages, and analytics in one place
+
+═══════════════════════════════════
+AVAILABLE IN
+═══════════════════════════════════
+
+📍 Andhra Pradesh: Vijayawada, Guntur, Visakhapatnam, Tirupati, Nellore, Rajahmundry, Kakinada, Anantapur, Kurnool, Kadapa
+
+📍 Telangana: Hyderabad, Warangal, Nizamabad, Karimnagar, Khammam, Nalgonda, Mahabubnagar, Adilabad
+
+Expanding to more cities soon!
+
+═══════════════════════════════════
+JAIKISAN - జైకిసాన్
+═══════════════════════════════════
+
+🌾 Jai Kisan = Victory to Farmers
+A marketplace built for Indian farmers and families.
+
+Download now and experience the freshness of farm-to-table produce!
+
+#FarmFresh #Vegetables #Fruits #OrganicFood #KisanApp #Raithu #Farmer #Agriculture</div>
+            </div>
+
+            <hr style="margin: 40px 0; border: none; border-top: 2px dashed #ddd;">
+
+            <h3>🌐 Localized Store Listings</h3>
+            <p>Navigate to: <strong>Store presence > Store settings > Manage translations</strong></p>
+
+            <div class="lang-section">
+                <h4><span class="lang-flag">🇮🇳</span> <span class="te">తెలుగు (Telugu)</span> - PRIMARY</h4>
+
+                <div class="copy-box">
+                    <button class="copy-btn" onclick="copyText(this)">Copy</button>
+                    <h4>App Name</h4>
+                    <div class="content te">Jaikisan - రైతు మిత్ర</div>
+                </div>
+
+                <div class="copy-box">
+                    <button class="copy-btn" onclick="copyText(this)">Copy</button>
+                    <h4>Short Description</h4>
+                    <div class="content te">రైతుల నుండి నేరుగా తాజా కూరగాయలు, పండ్లు, బియ్యం, నూనెలు కొనండి 🌾</div>
+                </div>
+
+                <div class="copy-box">
+                    <button class="copy-btn" onclick="copyText(this)">Copy</button>
+                    <h4>Full Description</h4>
+                    <div class="content te">🌾 జైకిసాన్ - రైతుల మార్కెట్‌ప్లేస్ 🌾
+
+జైకిసాన్ మీకు తాజా కూరగాయలు, పండ్లు, ధాన్యాలు, నూనెలు మరియు పాల ఉత్పత్తులను నేరుగా రైతుల నుండి అందిస్తుంది.
+
+✅ తాజా ఉత్పత్తులు - మధ్యవర్తులు లేకుండా
+✅ మంచి ధరలు - 20-40% ఆదా
+✅ ధృవీకరించబడిన రైతులు
+✅ హోమ్ డెలివరీ
+
+కూరగాయలు, పండ్లు, బియ్యం, పప్పులు, నూనెలు, నెయ్యి, పాలు - అన్నీ ఒకే చోట!
+
+ఇప్పుడే డౌన్‌లోడ్ చేసి తాజా ఉత్పత్తులను ఆస్వాదించండి!</div>
+                </div>
+            </div>
+
+            <div class="lang-section">
+                <h4><span class="lang-flag">🇮🇳</span> <span class="hi">हिंदी (Hindi)</span></h4>
+
+                <div class="copy-box">
+                    <button class="copy-btn" onclick="copyText(this)">Copy</button>
+                    <h4>App Name</h4>
+                    <div class="content hi">Jaikisan - किसान मित्र</div>
+                </div>
+
+                <div class="copy-box">
+                    <button class="copy-btn" onclick="copyText(this)">Copy</button>
+                    <h4>Short Description</h4>
+                    <div class="content hi">किसानों से सीधे ताज़ी सब्जियां, फल, अनाज, तेल खरीदें 🌾</div>
+                </div>
+            </div>
+
+            <div class="lang-section">
+                <h4><span class="lang-flag">🇮🇳</span> <span class="kn">ಕನ್ನಡ (Kannada)</span></h4>
+
+                <div class="copy-box">
+                    <button class="copy-btn" onclick="copyText(this)">Copy</button>
+                    <h4>App Name</h4>
+                    <div class="content kn">Jaikisan - ರೈತ ಮಿತ್ರ</div>
+                </div>
+
+                <div class="copy-box">
+                    <button class="copy-btn" onclick="copyText(this)">Copy</button>
+                    <h4>Short Description</h4>
+                    <div class="content kn">ರೈತರಿಂದ ನೇರವಾಗಿ ತಾಜಾ ತರಕಾರಿ, ಹಣ್ಣು, ಧಾನ್ಯ ಖರೀದಿಸಿ 🌾</div>
+                </div>
+            </div>
+
+            <div class="lang-section">
+                <h4><span class="lang-flag">🇮🇳</span> <span class="ta">தமிழ் (Tamil)</span></h4>
+
+                <div class="copy-box">
+                    <button class="copy-btn" onclick="copyText(this)">Copy</button>
+                    <h4>App Name</h4>
+                    <div class="content ta">Jaikisan - விவசாய சந்தை</div>
+                </div>
+
+                <div class="copy-box">
+                    <button class="copy-btn" onclick="copyText(this)">Copy</button>
+                    <h4>Short Description</h4>
+                    <div class="content ta">விவசாயிகளிடம் நேரடியாக காய்கறி, பழங்கள், தானியங்கள் வாங்குங்கள் 🌾</div>
+                </div>
+            </div>
+
+            <h3>Tags & Categories</h3>
+            <p>Navigate to: <strong>Store presence > Main store listing > Categories & tags</strong></p>
+            <ul>
+                <li><strong>Primary Category:</strong> Shopping</li>
+                <li><strong>Additional Tags:</strong> Food & Drink, Lifestyle</li>
+            </ul>
+        </section>
+
+        <section id="upload">
+            <h2>Step 4: Uploading the AAB File</h2>
+            <p>Navigate to: <strong>Release > Production</strong></p>
+            <ol>
+                <li>Click <strong>"Create new release"</strong></li>
+                <li>Choose <strong>"Google Play App Signing"</strong> (Recommended)</li>
+                <li>Upload your AAB file: <code>Jaikisan.aab</code></li>
+                <li>Wait for upload and processing</li>
+            </ol>
+
+            <h3>Release Notes</h3>
+            <div class="copy-box">
+                <button class="copy-btn" onclick="copyText(this)">Copy</button>
+                <h4>Release Notes (1.0.0)</h4>
+                <div class="content">🌾 Welcome to Jaikisan!
+
+What's new:
+• Browse fresh vegetables, fruits, grains & more from local farmers
+• Search products by category and location
+• Connect with verified farmers directly
+• Add to cart and checkout
+• Track your orders
+
+Join thousands of families buying farm-fresh produce!
+
+---
+
+<span class="te">జైకిసాన్‌కు స్వాగతం! రైతుల నుండి తాజా కూరగాయలు, పండ్లు కొనండి.</span></div>
+            </div>
+        </section>
+
+        <section id="content-rating">
+            <h2>Step 5: Content Rating</h2>
+            <p>Navigate to: <strong>Policy > App content > Content rating</strong></p>
+
+            <ol>
+                <li>Start questionnaire</li>
+                <li>Email: contact@jaikisanorganics.com</li>
+                <li>Category: Utility, Productivity, Communication, or "Other"</li>
+            </ol>
+
+            <h3>Answer These Questions:</h3>
+            <table>
+                <tr><th>Question</th><th>Answer</th></tr>
+                <tr><td>Violence</td><td>No</td></tr>
+                <tr><td>Sexual content</td><td>No</td></tr>
+                <tr><td>Language</td><td>No</td></tr>
+                <tr><td>Controlled substances</td><td>No</td></tr>
+                <tr><td>User-generated content</td><td>Yes (product listings)</td></tr>
+                <tr><td>Personal information sharing</td><td>Yes (for transactions)</td></tr>
+                <tr><td>Location sharing</td><td>Yes (for nearby products)</td></tr>
+            </table>
+
+            <div class="success">
+                <strong>Expected Rating:</strong> Everyone (E) or Everyone 3+ (E3+)
+            </div>
+        </section>
+
+        <section id="graphics">
+            <h2>Step 6: Store Listing Graphics</h2>
+            <p>Navigate to: <strong>Store presence > Main store listing > Graphics</strong></p>
+
+            <table>
+                <tr><th>Asset</th><th>Size</th><th>Notes</th></tr>
+                <tr><td>App Icon</td><td>512x512 PNG</td><td>High-res, no transparency</td></tr>
+                <tr><td>Feature Graphic</td><td>1024x500 PNG/JPG</td><td>Promotional banner</td></tr>
+                <tr><td>Screenshots (Phone)</td><td>Min 2, Max 8</td><td>16:9 or 9:16 ratio</td></tr>
+                <tr><td>Screenshots (Tablet)</td><td>Optional</td><td>16:9 ratio</td></tr>
+            </table>
+
+            <h3>Screenshot Text Overlays to Add:</h3>
+            <ul>
+                <li>"Fresh from Farm 🌾"</li>
+                <li>"Direct from Farmers"</li>
+                <li>"20-40% Savings"</li>
+                <li>"100+ Verified Farmers"</li>
+                <li>"Home Delivery"</li>
+            </ul>
+        </section>
+
+        <section id="declarations">
+            <h2>Step 7: App Content Declaration</h2>
+            <p>Navigate to: <strong>Policy > App content</strong></p>
+
+            <h3>7.1 Privacy Policy</h3>
+            <div class="copy-box">
+                <button class="copy-btn" onclick="copyText(this)">Copy</button>
+                <h4>Privacy Policy URL</h4>
+                <div class="content">https://jaikisan.co.in/privacy</div>
+            </div>
+
+            <h3>7.2 Delete Account URL</h3>
+            <div class="copy-box">
+                <button class="copy-btn" onclick="copyText(this)">Copy</button>
+                <h4>Account Deletion URL</h4>
+                <div class="content">https://jaikisan.co.in/delete-account</div>
+            </div>
+
+            <h3>7.3 Ads Declaration</h3>
+            <p>Select: "No, my app does not contain ads"</p>
+
+            <h3>7.4 Data Safety</h3>
+            <table>
+                <tr><th>Data Type</th><th>Collected</th><th>Shared</th><th>Purpose</th></tr>
+                <tr><td>Name</td><td>Yes</td><td>No</td><td>Account</td></tr>
+                <tr><td>Email</td><td>Yes</td><td>No</td><td>Account</td></tr>
+                <tr><td>Phone</td><td>Yes</td><td>No</td><td>Account, Orders</td></tr>
+                <tr><td>Address</td><td>Yes</td><td>Yes (delivery)</td><td>Delivery</td></tr>
+                <tr><td>Location</td><td>Yes</td><td>No</td><td>Nearby products</td></tr>
+                <tr><td>Photos</td><td>Yes</td><td>No</td><td>Product listings</td></tr>
+                <tr><td>Purchase history</td><td>Yes</td><td>No</td><td>Order tracking</td></tr>
+            </table>
+
+            <h3>7.5 Target Audience</h3>
+            <p>Select: 18 and older (Marketplace/E-commerce)</p>
+        </section>
+
+        <section id="pricing">
+            <h2>Step 8: Pricing & Distribution</h2>
+            <p>Navigate to: <strong>Monetization > Pricing</strong></p>
+            <ul>
+                <li><strong>App Price:</strong> Free</li>
+                <li><strong>Countries:</strong> India (Primary), USA, UAE, UK, Canada, Australia</li>
+            </ul>
+        </section>
+
+        <section id="submit">
+            <h2>Step 9: Review & Submit</h2>
+
+            <h3>Pre-launch Checklist</h3>
+            <ul class="checklist">
+                <li>App name is correct</li>
+                <li>Short description (80 chars max)</li>
+                <li>Full description with keywords</li>
+                <li>All screenshots uploaded</li>
+                <li>Feature graphic uploaded</li>
+                <li>App icon uploaded</li>
+                <li>Privacy policy URL added</li>
+                <li>Delete account URL added</li>
+                <li>Content rating completed</li>
+                <li>Data safety completed</li>
+                <li>AAB file uploaded</li>
+                <li>Release notes added</li>
+            </ul>
+
+            <h3>Submit for Review</h3>
+            <ol>
+                <li>Navigate to <strong>Release > Production</strong></li>
+                <li>Click on your release</li>
+                <li>Review all details</li>
+                <li>Click <strong>"Start rollout to Production"</strong></li>
+                <li>Confirm submission</li>
+            </ol>
+
+            <div class="info">
+                <strong>Review Timeline:</strong><br>
+                • First review: 3-7 days (sometimes longer)<br>
+                • Subsequent updates: 1-3 days
+            </div>
+        </section>
+
+        <section id="post-launch">
+            <h2>Step 10: Post-Launch Optimization</h2>
+
+            <h3>Respond to Reviews</h3>
+            <div class="copy-box">
+                <button class="copy-btn" onclick="copyText(this)">Copy</button>
+                <h4>Sample Response Template</h4>
+                <div class="content">Thank you for using Jaikisan! 🌾 We're glad you're enjoying fresh farm produce. Your support helps local farmers directly. For any issues, please contact us at support@jaikisan.co.in</div>
+            </div>
+
+            <h3>Monitor Search Rankings For:</h3>
+            <ul>
+                <li>"vegetables app"</li>
+                <li>"kisan app"</li>
+                <li>"farm fresh"</li>
+                <li>"grocery delivery"</li>
+                <li>"organic vegetables"</li>
+                <li>"buy vegetables online"</li>
+            </ul>
+        </section>
+
+        <section id="keywords">
+            <h2>📊 Keywords & Search Terms to Target</h2>
+
+            <h3>English Keywords</h3>
+            <ul>
+                <li>vegetables online, fresh vegetables, grocery delivery app</li>
+                <li>farm fresh produce, organic vegetables app</li>
+                <li>buy vegetables online, fruits delivery</li>
+                <li>rice dal online, cooking oil online</li>
+                <li>dairy products app, farmer marketplace</li>
+                <li>direct from farm, kisan app, farmer app</li>
+            </ul>
+
+            <h3 class="te">Telugu Keywords (తెలుగు)</h3>
+            <ul class="te">
+                <li>కూరగాయలు, పండ్లు, బియ్యం</li>
+                <li>పప్పులు, నూనెలు, రైతు</li>
+                <li>వ్యవసాయం, తాజా కూరగాయలు</li>
+            </ul>
+
+            <h3 class="hi">Hindi Keywords (हिंदी)</h3>
+            <ul class="hi">
+                <li>सब्जी ऐप, किसान, ताज़ी सब्जियां</li>
+                <li>फल, दाल चावल, तेल</li>
+            </ul>
+
+            <h3>Product Categories to Mention</h3>
+            <ul>
+                <li><strong>Vegetables:</strong> Tomato, Onion, Potato, Brinjal, Beans, Carrot</li>
+                <li><strong>Fruits:</strong> Mango, Banana, Apple, Orange, Grapes</li>
+                <li><strong>Grains:</strong> Rice, Wheat, Jowar, Bajra, Ragi</li>
+                <li><strong>Pulses:</strong> Toor Dal, Moong Dal, Urad Dal, Chana Dal</li>
+                <li><strong>Oils:</strong> Groundnut Oil, Coconut Oil, Sunflower Oil, Sesame Oil</li>
+                <li><strong>Dairy:</strong> Milk, Curd, Ghee, Paneer, Butter</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>🔗 Important Links</h2>
+            <ul>
+                <li><a href="https://play.google.com/console" target="_blank">Play Console</a></li>
+                <li><a href="https://play.google.com/about/developer-content-policy/" target="_blank">App Content Policies</a></li>
+                <li><a href="https://support.google.com/googleplay/android-developer/answer/9898842" target="_blank">Store Listing Best Practices</a></li>
+                <li><a href="https://support.google.com/googleplay/android-developer/" target="_blank">Google Developer Support</a></li>
+            </ul>
+        </section>
+    </div>
+
+    <footer>
+        <p><strong>Document Version:</strong> 1.0 | <strong>Last Updated:</strong> February 2026</p>
+        <p>Jaikisan Development Team</p>
+    </footer>
+
+    <script>
+        function copyText(btn) {
+            const copyBox = btn.closest('.copy-box');
+            const content = copyBox.querySelector('.content');
+            const text = content.innerText;
+
+            navigator.clipboard.writeText(text).then(() => {
+                btn.textContent = 'Copied!';
+                btn.classList.add('copied');
+
+                setTimeout(() => {
+                    btn.textContent = 'Copy';
+                    btn.classList.remove('copied');
+                }, 2000);
+            }).catch(err => {
+                // Fallback for older browsers
+                const textarea = document.createElement('textarea');
+                textarea.value = text;
+                document.body.appendChild(textarea);
+                textarea.select();
+                document.execCommand('copy');
+                document.body.removeChild(textarea);
+
+                btn.textContent = 'Copied!';
+                btn.classList.add('copied');
+
+                setTimeout(() => {
+                    btn.textContent = 'Copy';
+                    btn.classList.remove('copied');
+                }, 2000);
+            });
+        }
+    </script>
+</body>
+</html>
